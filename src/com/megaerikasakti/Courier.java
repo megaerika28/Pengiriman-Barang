@@ -24,7 +24,7 @@ public class Courier {
         this.ansuransi = ansuransi;
         this.hargaTipeLayanan = hargaTipeLayanan;
     }
-    
+     
 
     /**
      * @return the berat

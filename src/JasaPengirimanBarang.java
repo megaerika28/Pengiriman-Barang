@@ -1,9 +1,11 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author user
@@ -65,7 +67,7 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
         beratbarangData = new javax.swing.JTextField();
         kotaData = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        tglpengirim = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -307,7 +309,7 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(beratbarangData)
                                     .addComponent(jenisbarangField)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(tglpengirim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -339,7 +341,7 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel16)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglpengirim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
@@ -486,6 +488,15 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
         jenislayanan.setText("0");
 
         AnsuransiPerhitungan.setText("0");
+        AnsuransiPerhitungan.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                AnsuransiPerhitunganAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel33.setText("Kg");
 
@@ -538,6 +549,11 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
         jLabel22.setText("Aplikasi Jasa Pengiriman Barang");
 
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -598,50 +614,50 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
     private void yaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yaActionPerformed
         // TODO add your handling code here:
         String PilihanAnsuransi = "";
-        if (ya.isSelected()){
+        if (ya.isSelected()) {
             PilihanAnsuransi = ya.getText();
-               if(kotaData.getSelectedItem().equals("Bandung")){
-            hargabarangData.setText("10000");
-            AnsuransiPerhitungan.setText("ya");
-        }
-        if(kotaData.getSelectedItem().equals("Semarang")){
-            hargabarangData.setText("16000");
-        }
-        if(kotaData.getSelectedItem().equals("Surabaya")){
-            hargabarangData.setText("18000");
-        }
-        if(kotaData.getSelectedItem().equals("Timika")){
-            hargabarangData.setText("20000");
-        }
-        if(kotaData.getSelectedItem().equals("Malang")){
-            hargabarangData.setText("18000");
-        }
-        if(kotaData.getSelectedItem().equals("Tangerang")){
-            hargabarangData.setText("8000");
-        }
-        if(kotaData.getSelectedItem().equals("Tasik Malaya")){
-            hargabarangData.setText("12000");
-        }
-        if(kotaData.getSelectedItem().equals("Yogyakarta")){
-            hargabarangData.setText("16000");
-        }
-        if (kotaData.getSelectedItem().equals("Medan")){
-            hargabarangData.setText("20000");
-        
-    }
-            
-        }else {
+            if (kotaData.getSelectedItem().equals("Bandung")) {
+                hargabarangData.setText("10000");
+                AnsuransiPerhitungan.setText("ya");
+            }
+            if (kotaData.getSelectedItem().equals("Semarang")) {
+                hargabarangData.setText("16000");
+            }
+            if (kotaData.getSelectedItem().equals("Surabaya")) {
+                hargabarangData.setText("18000");
+            }
+            if (kotaData.getSelectedItem().equals("Timika")) {
+                hargabarangData.setText("20000");
+            }
+            if (kotaData.getSelectedItem().equals("Malang")) {
+                hargabarangData.setText("18000");
+            }
+            if (kotaData.getSelectedItem().equals("Tangerang")) {
+                hargabarangData.setText("8000");
+            }
+            if (kotaData.getSelectedItem().equals("Tasik Malaya")) {
+                hargabarangData.setText("12000");
+            }
+            if (kotaData.getSelectedItem().equals("Yogyakarta")) {
+                hargabarangData.setText("16000");
+            }
+            if (kotaData.getSelectedItem().equals("Medan")) {
+                hargabarangData.setText("20000");
+
+            }
+
+        } else {
             PilihanAnsuransi = tidak.getText();
-            
+
         }
     }//GEN-LAST:event_yaActionPerformed
 
     private void tidakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tidakActionPerformed
         // TODO add your handling code here:
-        if (tidak.isSelected()){
-            hargabarangData.setText("");
+        if (tidak.isSelected()) {
+            hargabarangData.setText("0");
             AnsuransiPerhitungan.setText("Tidak");
-       }
+        }
     }//GEN-LAST:event_tidakActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -650,45 +666,45 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
 
     private void kotaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kotaDataActionPerformed
         // TODO add your handling code here:
-     if(kotaData.getSelectedItem().equals("Bandung")){
-           kotatujuanPerhitungan.setText("Bandung");
-               }
-     if(kotaData.getSelectedItem().equals("Semarang")){
-           kotatujuanPerhitungan.setText("Semarang");
-           
-               }
-     if(kotaData.getSelectedItem().equals("Surabaya")){
-           kotatujuanPerhitungan.setText("Surabaya");
-               }
-     if(kotaData.getSelectedItem().equals("Timika")){
-           kotatujuanPerhitungan.setText("Timika");
-     }
-     if(kotaData.getSelectedItem().equals("Malang")){
-           kotatujuanPerhitungan.setText("Malang");
-     }
-     if(kotaData.getSelectedItem().equals("Tangerang")){
-           kotatujuanPerhitungan.setText("Tangerang");
-     }
-     if(kotaData.getSelectedItem().equals("Tasik Malaya")){
-           kotatujuanPerhitungan.setText("Tasik Malaya");
-     }
-     if(kotaData.getSelectedItem().equals("Yogyakarta")){
-           kotatujuanPerhitungan.setText("Yogyakarta");
-     }
-     if(kotaData.getSelectedItem().equals("Medan")){
-           kotatujuanPerhitungan.setText("Medan");
-     }
+        if (kotaData.getSelectedItem().equals("Bandung")) {
+            kotatujuanPerhitungan.setText("Bandung");
+        }
+        if (kotaData.getSelectedItem().equals("Semarang")) {
+            kotatujuanPerhitungan.setText("Semarang");
+
+        }
+        if (kotaData.getSelectedItem().equals("Surabaya")) {
+            kotatujuanPerhitungan.setText("Surabaya");
+        }
+        if (kotaData.getSelectedItem().equals("Timika")) {
+            kotatujuanPerhitungan.setText("Timika");
+        }
+        if (kotaData.getSelectedItem().equals("Malang")) {
+            kotatujuanPerhitungan.setText("Malang");
+        }
+        if (kotaData.getSelectedItem().equals("Tangerang")) {
+            kotatujuanPerhitungan.setText("Tangerang");
+        }
+        if (kotaData.getSelectedItem().equals("Tasik Malaya")) {
+            kotatujuanPerhitungan.setText("Tasik Malaya");
+        }
+        if (kotaData.getSelectedItem().equals("Yogyakarta")) {
+            kotatujuanPerhitungan.setText("Yogyakarta");
+        }
+        if (kotaData.getSelectedItem().equals("Medan")) {
+            kotatujuanPerhitungan.setText("Medan");
+        }
     }//GEN-LAST:event_kotaDataActionPerformed
 
     private void kotatujuanPerhitunganAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_kotatujuanPerhitunganAncestorAdded
         // TODO add your handling code here:
         String kotatujuan = "";
-       // if (kotaData.isSelected()){
-          // kotatujuan = kotaData.getText();
-           //    if(kotaData.getSelectedItem().equals("Bandung")){
-          // kotatujuanPerhitungan.setText("Bandung");
+        // if (kotaData.isSelected()){
+        // kotatujuan = kotaData.getText();
+        //    if(kotaData.getSelectedItem().equals("Bandung")){
+        // kotatujuanPerhitungan.setText("Bandung");
         //}
-               
+
 //        if(kotaData.getSelectedItem().equals("Semarang")){
 //            hargabarangData.setText("16000");
 //        }
@@ -718,20 +734,52 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
 
     private void jenislayananDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenislayananDataActionPerformed
         // TODO add your handling code here:
-        if(jenislayananData.getSelectedItem().equals("Regular")){
-           jenislayanan.setText("Regular");
-     }
-        if(jenislayananData.getSelectedItem().equals("sds")){
-           jenislayanan.setText("sds");
-     }
-        if(jenislayananData.getSelectedItem().equals("ons")){
-           jenislayanan.setText("ons");
-     }
-        if(jenislayananData.getSelectedItem().equals("hds")){
-           jenislayanan.setText("hds");
-     }
-        
+        if (jenislayananData.getSelectedItem().equals("Regular")) {
+            jenislayanan.setText("Regular");
+        }
+        if (jenislayananData.getSelectedItem().equals("sds")) {
+            jenislayanan.setText("sds");
+        }
+        if (jenislayananData.getSelectedItem().equals("ons")) {
+            jenislayanan.setText("ons");
+        }
+        if (jenislayananData.getSelectedItem().equals("hds")) {
+            jenislayanan.setText("hds");
+        }
+
     }//GEN-LAST:event_jenislayananDataActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        beratpaketPerhitungan.setText(beratbarangData.getText());
+        if(NamaFieldPengirim.getText().equals("")||AlamatFieldPengirim.getText().equals("")
+                ||KodePosPengirim.getText().equals("") ||tlppengirim.getText().equals("") 
+               ||hppengirim.getText().equals("")||NamaFieldPenerima.getText().equals("")
+                ||KodePosPenerima.getText().equals("") ||tlpPenerima.getText().equals("")
+               ||hppenerima.getText().equals("")||nomorpaketField.getText().equals("")
+               ||jenisbarangField.getText().equals("")||beratbarangData.getText().equals("")
+                ||dimensiData.getText().equals("")
+              || hargabarangData.getText().equals("") )
+{
+JOptionPane.showMessageDialog(null, "Masukkan data dengan benar !","Kesalahan", JOptionPane.ERROR_MESSAGE);
+    return;
+} else
+{
+    JOptionPane.showMessageDialog(null, "Data Telah Disimpan");
+//hasilnim.setText(nim.getText());
+//hasilnama.setText(nama.getText());
+//hasilkelas.setText(kelas.getText());
+
+}
+
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void AnsuransiPerhitunganAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_AnsuransiPerhitunganAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnsuransiPerhitunganAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -789,7 +837,6 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox7;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -835,6 +882,7 @@ public class JasaPengirimanBarang extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> kotaData;
     private javax.swing.JLabel kotatujuanPerhitungan;
     private javax.swing.JTextField nomorpaketField;
+    private com.toedter.calendar.JDateChooser tglpengirim;
     private javax.swing.JRadioButton tidak;
     private javax.swing.JTextField tlpPenerima;
     private javax.swing.JTextField tlppengirim;
